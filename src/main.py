@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from add import add
+from minus import minus
 
 app = Flask(__name__)
 
@@ -14,6 +15,14 @@ def add_endpoint():
     num2 = int(request.form['num2'])
 
     return render_template('calu.html', result=add(num1,num2))
+
+
+@app.route('/minus', methods=['POST'])
+def add_endpoint():
+    num1 = int(request.form['num1'])
+    num2 = int(request.form['num2'])
+
+    return render_template('calu.html', result=minus(num1,num2))
 
 
 if __name__ == '__main__':
